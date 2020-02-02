@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+        First name:{{ author.firstName }}
+        Last name:{{ author.lastName }}
+        Birthday:{{ author.birthday.format('d-m-y') }}
+        Gender:{{ author.gender }}
+        Place of birth:{{ author.placeOfBirth }}
+        Id:{{ author.id }}
+        Books:
+            <ul>
+            {% for book in author.books %}
+                <li>Title: {{  book.title }}</li>
+                <li>Release date: {{  book.releaseDate.format('d-m-y') }}</li>
+                <li>Updated at: {{  book.updatedAt.format('d-m-y') }}</li>
+                <li>ISBN: {{  book.isbn }}</li>
+                <li>Format: {{  book.format }}</li>
+                <li>Number of pages: {{  book.numberOfPages }}</li>
+                <li><a href="{{ path('delete_book', {bookId: book.id})}}">Obriši knjigu</a></li>
+                <hr>
+            {% endfor %}
+            </ul>
+        <hr>
+
+{% endblock %}

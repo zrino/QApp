@@ -6,6 +6,15 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% if app.user is not null %}
+        <b>Logged as user: {{ app.user.email }}</b>
+        Hello {{ app.user.firstName }} {{ app.user.lastName }} :)
+        <a href="{{ path("logout") }}">Log out</a>
+            <br>
+            <a href="{{ path("authors_list") }}">Authors</a>
+            <a href="{{ path("create_book") }}">Add a book</a>
+        {% endif %}
+        <hr>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

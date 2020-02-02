@@ -1,0 +1,10 @@
+{% block body %}
+    This is my profile page.
+
+    <ul>
+        <li><a href="{{ path('authors_list') }}">Authors</a></li>
+        <li><a href="{{ path('create_book') }}">Add a book</a></li>
+        <li><a href="{{ path('logout') }}">Logout</a></li>
+    </ul>
+
+{% endblock %}
